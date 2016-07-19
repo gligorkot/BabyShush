@@ -3,27 +3,38 @@ package com.kokiinteractive.babyshush;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.io.File;
 
 public class BabyShushActivity extends AppCompatActivity {
 
+    private boolean shushing = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_baby_shush);
-    }
 
-    public void audioPlayer(String path, String fileName){
-        //set up MediaPlayer
-        MediaPlayer mp = new MediaPlayer();
+        final MediaPlayer mediaPlayer = MediaPlayer.create(BabyShushActivity.this, R.raw.shush);
+        mediaPlayer.setLooping(true);
 
-        try {
-            mp.setDataSource(path + File.separator + fileName);
-            mp.prepare();
-            mp.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        final Button startShushing = (Button) findViewById(R.id.startShushingButton);
+        assert startShushing != null;
+        startShushing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!shushing) {
+                    mediaPlayer.start();
+                    startShushing.setText(R.string.stop_shushing);
+                } else {
+                    mediaPlayer.pause();
+                    startShushing.setText(R.string.start_shushing);
+                }
+                shushing = !shushing;
+            }
+        });
+
     }
 }
