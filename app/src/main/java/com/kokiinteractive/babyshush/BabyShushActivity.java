@@ -1,12 +1,10 @@
 package com.kokiinteractive.babyshush;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import java.io.File;
 
 public class BabyShushActivity extends AppCompatActivity {
 
