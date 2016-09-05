@@ -3,4 +3,7 @@
     <string name="start_shushing">Start Shushing</string>
     <string name="stop_shushing">Stop Shushing</string>
     <string name="licenseText">Shush sound provided by Mike Koening at\nhttp://soundbible.com/780-Shush.html\nLicense: Attribution 3.0</string>
+    <string name="forever">Forever</string>
+    <string name="_40_minute_timer">40 Minute Timer</string>
+    <string name="_20_minute_timer">20 Minute Timer</string>
 </resources>
